@@ -14,8 +14,8 @@ puts "--------------"
 
 options = {}
 OptionParser.new do |parser|
-   parser.on("-n", "--name NAME", "The name of the person") do |value|
-       options[:name] = value
+   parser.on("-n", "--text TEXT", "The text you want to wrap") do |value|
+       options[:text] = value
     end
   end.parse!
-  puts 'hello ' + options[:name]
+  puts WordWrap.new.wrap(options[:text], 5)
