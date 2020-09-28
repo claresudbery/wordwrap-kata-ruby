@@ -14,12 +14,13 @@ puts "--------------"
 
 options = {}
 OptionParser.new do |parser|
-   parser.on("-n", "--text TEXT", "The text you want to wrap") do |value|
-       options[:text] = value
+    parser.on("-t", "--text=TEXT", "The text you want to wrap") do |value|
+        options[:text] = value
     end
-  end.parse!
-  if options[:text]
+end.parse!
+
+if options[:text]
     puts WordWrap.new.wrap(options[:text], 5)        
-  else
+else
     puts "Please give a value for --text"  
-  end  
+end 
