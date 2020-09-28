@@ -31,3 +31,8 @@ if options[:text] && options[:len]
 else
     puts "Please give values for --text (-t) and --len (-l)"  
 end 
+
+$stdout.sync = true
+puts "Tell me your name"
+name = gets.chomp
+puts "Hello #{name}"
