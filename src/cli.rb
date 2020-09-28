@@ -18,4 +18,8 @@ OptionParser.new do |parser|
        options[:text] = value
     end
   end.parse!
-  puts WordWrap.new.wrap(options[:text], 5)
+  if options[:text]
+    puts WordWrap.new.wrap(options[:text], 5)        
+  else
+    puts "Please give a value for --text"  
+  end  
