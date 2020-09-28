@@ -17,10 +17,13 @@ OptionParser.new do |parser|
     parser.on("-t", "--text=TEXT", "The text you want to wrap") do |value|
         options[:text] = value
     end
+    parser.on("-l", "--len=LENGTH", "Max line length (text will wrap after this length)") do |value|
+        options[:len] = value
+    end
 end.parse!
 
-if options[:text]
-    puts WordWrap.new.wrap(options[:text], 5)        
+if options[:text] && options[:len]
+    puts WordWrap.new.wrap(options[:text], options[:len])        
 else
-    puts "Please give a value for --text"  
+    puts "Please give values for --text (-t) and --len (-l)"  
 end 
