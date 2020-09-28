@@ -20,6 +20,10 @@ OptionParser.new do |parser|
     parser.on("-l", "--len=LENGTH", "Max line length (text will wrap after this length)") do |value|
         options[:len] = value
     end
+    parser.on("-h", "--help", "Prints this help") do
+        puts parser
+        exit
+    end
 end.parse!
 
 if options[:text] && options[:len]
