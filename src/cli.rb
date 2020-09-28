@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require_relative './wordwrap'
+require 'optparse'
 
 puts "--------------"
 puts 'Welcome to Word Wrap'
@@ -10,3 +11,11 @@ puts "For instance the inputs 'hello world', 5 will output two lines - 'hello' a
 puts "--------------"
 puts WordWrap.new.wrap("hello world", 5)
 puts "--------------"
+
+options = {}
+OptionParser.new do |parser|
+   parser.on("-n", "--name NAME", "The name of the person") do |value|
+       options[:name] = value
+    end
+  end.parse!
+  puts 'hello ' + options[:name]
